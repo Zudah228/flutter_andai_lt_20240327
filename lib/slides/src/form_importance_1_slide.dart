@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 import '../../components/extended_flutter_deck_bullet_list.dart';
 import '../../components/form_management_buttons.dart';
 import '../../components/subtitle.dart';
-import '../../utils/list_ex.dart';
 
 class FormImportance1Slide extends FlutterDeckSlideWidget {
   FormImportance1Slide()
@@ -36,7 +35,7 @@ class FormImportance1Slide extends FlutterDeckSlideWidget {
                     'プレースホルダー',
                     'エラー通知'
                         '\netc...',
-                  ].addedLfAtLast(),
+                  ].map((e) => TextSpan(text: e)).toList(),
                 ),
               ),
               const Flexible(flex: 3, child: _FormSample()),

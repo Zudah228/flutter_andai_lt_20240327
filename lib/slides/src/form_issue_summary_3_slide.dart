@@ -5,7 +5,6 @@ import 'package:flutter_deck/flutter_deck.dart';
 import 'package:gap/gap.dart';
 
 import '../../components/subtitle.dart';
-import '../../utils/list_ex.dart';
 
 class FormIssueSummary3Slide extends FlutterDeckSlideWidget {
   FormIssueSummary3Slide()
@@ -35,7 +34,7 @@ class FormIssueSummary3Slide extends FlutterDeckSlideWidget {
                     'TextFormFieldについて挙げた例しかない',
                     'バリデーションのサンプルコードがかなり簡素',
                     '重要な FormField ウィジェットも１ページに満たない分量',
-                  ].addedLfAtLast(),
+                  ],
                 ),
               ),
             ],

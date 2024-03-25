@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
 import '../../components/subtitle.dart';
-import '../../utils/list_ex.dart';
 
 class FormIssueCode2Slide extends FlutterDeckSlideWidget {
   FormIssueCode2Slide()
@@ -27,26 +26,30 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
             children: [
               Flexible(
                 flex: 3,
-                child: LayoutBuilder(builder: (context, constraints) {
-                  return SizedBox(
-                    width: constraints.maxWidth,
-                    child: const FittedBox(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          FlutterDeckCodeHighlight(
-                            code: _code_onPressed,
-                            fileName: 'my_form_widget.dart',
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return SingleChildScrollView(
+                      child: SizedBox(
+                        width: constraints.maxWidth,
+                        child: const FittedBox(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FlutterDeckCodeHighlight(
+                                code: _codeOnPressed,
+                                fileName: 'my_form_widget.dart',
+                              ),
+                              FlutterDeckCodeHighlight(
+                                code: _codeValidation,
+                                fileName: 'user_form_validation.dart',
+                              ),
+                            ],
                           ),
-                          FlutterDeckCodeHighlight(
-                            code: _code_validation,
-                            fileName: 'user_form_validation.dart',
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  },
+                ),
               ),
               Flexible(
                 flex: 2,
@@ -54,7 +57,7 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
                   items: const [
                     'ある程度構造化・関心事の分離がされている',
                     'エラーメッセージが出るので、必ずしもダイアログで通知する必要がない',
-                  ].addedLfAtLast(5),
+                  ],
                 ),
               ),
             ],
@@ -64,7 +67,7 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
     );
   }
 
-  static const _code_onPressed = '''
+  static const _codeOnPressed = '''
 class _MyFormWidgetState extends State<MyFormWidget> {
 
   Future<void> _onPressed() async {
@@ -83,7 +86,7 @@ class _MyFormWidgetState extends State<MyFormWidget> {
       ),
 
 ''';
-  static const _code_validation = '''
+  static const _codeValidation = '''
 class UserFormValidation {
   const UserFormValidation._();
 

@@ -16,7 +16,7 @@ class FlutterDeckSubtitledComponent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _Subtitle(subtitle),
+        Subtitle(subtitle),
         const Gap(16),
         Expanded(child: child),
       ],
@@ -24,8 +24,8 @@ class FlutterDeckSubtitledComponent extends StatelessWidget {
   }
 }
 
-class _Subtitle extends StatelessWidget {
-  const _Subtitle(this.text);
+class Subtitle extends StatelessWidget {
+  const Subtitle(this.text, {super.key});
 
   final String text;
 

@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
 import '../../components/subtitle.dart';
-import '../../utils/list_ex.dart';
 
 class FormIssueCode1Slide extends FlutterDeckSlideWidget {
   FormIssueCode1Slide()
@@ -40,7 +39,7 @@ class FormIssueCode1Slide extends FlutterDeckSlideWidget {
                   items: const [
                     '条件式の管理が難しい',
                     '「どこがエラーなのか」の判断にかなり工夫がいる',
-                  ].addedLfAtLast(5),
+                  ],
                 ),
               )
             ],

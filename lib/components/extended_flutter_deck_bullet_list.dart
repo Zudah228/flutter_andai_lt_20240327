@@ -61,10 +61,12 @@ class ExtendedFlutterDeckBulletList extends StatefulWidget {
     this.bulletPointWidget,
     this.bulletPointText,
     super.key,
+    this.textStyle,
+    this.strutStyle,
   }) : assert(items.isNotEmpty, 'You must provide at least one bullet point.');
 
   /// A list of bullet points.
-  final List<String> items;
+  final List<TextSpan> items;
 
   /// Whether to render the bullet points one by one as the user steps through
   /// the slide.
@@ -88,6 +90,9 @@ class ExtendedFlutterDeckBulletList extends StatefulWidget {
   final Widget? bulletPointWidget;
   final String? bulletPointText;
 
+  final TextStyle? textStyle;
+  final StrutStyle? strutStyle;
+
   @override
   State<ExtendedFlutterDeckBulletList> createState() =>
       _ExtendedFlutterDeckBulletListState();
@@ -105,6 +110,8 @@ class _ExtendedFlutterDeckBulletListState
         autoSizeGroup: _autoSizeGroup,
         bulletPointWidget: widget.bulletPointWidget,
         bulletPointText: widget.bulletPointText,
+        textStyle: widget.textStyle,
+        strutStyle: widget.strutStyle,
       );
     }
 
@@ -115,6 +122,8 @@ class _ExtendedFlutterDeckBulletListState
         bulletPointWidget: widget.bulletPointWidget,
         bulletPointText: widget.bulletPointText,
         stepNumber: stepNumber - widget.stepOffset,
+        textStyle: widget.textStyle,
+        strutStyle: widget.strutStyle,
       ),
     );
   }
@@ -127,13 +136,17 @@ class _BulletList extends StatelessWidget {
     this.bulletPointWidget,
     this.stepNumber,
     this.bulletPointText,
+    this.textStyle,
+    this.strutStyle,
   });
 
-  final List<String> items;
+  final List<TextSpan> items;
   final AutoSizeGroup autoSizeGroup;
   final Widget? bulletPointWidget;
   final String? bulletPointText;
   final int? stepNumber;
+  final TextStyle? textStyle;
+  final StrutStyle? strutStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +156,7 @@ class _BulletList extends StatelessWidget {
         for (var i = 0; i < items.length; i++)
           Flexible(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: i == items.length - 1 ? 0 : 16),
               child: _BulletListItem(
                 group: autoSizeGroup,
                 text: items[i],
@@ -151,6 +164,8 @@ class _BulletList extends StatelessWidget {
                     stepNumber != null && i + 1 <= stepNumber!,
                 bulletPointWidget: bulletPointWidget,
                 bulletPointText: bulletPointText,
+                textStyle: textStyle,
+                strutStyle: strutStyle,
               ),
             ),
           ),
@@ -166,13 +181,17 @@ class _BulletListItem extends StatelessWidget {
     required this.visible,
     this.bulletPointWidget,
     this.bulletPointText,
+    this.textStyle,
+    this.strutStyle,
   });
 
   final AutoSizeGroup group;
-  final String text;
+  final TextSpan text;
   final bool visible;
   final Widget? bulletPointWidget;
   final String? bulletPointText;
+  final TextStyle? textStyle;
+  final StrutStyle? strutStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -183,12 +202,19 @@ class _BulletListItem extends StatelessWidget {
         children: [
           bulletPointWidget ??
               _AutoSizeText(
-                bulletPointText ?? '\u2022',
+                TextSpan(text: bulletPointText ?? '\u2022'),
                 group: group,
+                textStyle: textStyle,
+                strutStyle: strutStyle,
               ),
           const SizedBox(width: 8),
           Expanded(
-            child: _AutoSizeText(text, group: group),
+            child: _AutoSizeText(
+              text,
+              group: group,
+              textStyle: textStyle,
+              strutStyle: strutStyle,
+            ),
           ),
         ],
       ),
@@ -200,23 +226,28 @@ class _AutoSizeText extends StatelessWidget {
   const _AutoSizeText(
     this.text, {
     required this.group,
+    this.textStyle,
+    this.strutStyle,
   });
 
   final AutoSizeGroup group;
-  final String text;
+  final TextSpan text;
+  final TextStyle? textStyle;
+  final StrutStyle? strutStyle;
 
   @override
   Widget build(BuildContext context) {
     final theme = FlutterDeckBulletListTheme.of(context);
-    final textStyle = theme.textStyle ?? const TextStyle();
+    final textStyle = this.textStyle ?? theme.textStyle ?? const TextStyle();
 
-    return AutoSizeText(
+    return AutoSizeText.rich(
       text,
       group: group,
       style: textStyle.copyWith(
         color: theme.color,
       ),
       maxFontSize: textStyle.fontSize ?? double.infinity,
+      strutStyle: strutStyle,
     );
   }
 }

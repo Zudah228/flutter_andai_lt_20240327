@@ -14,11 +14,11 @@ class FormImportance2Slide extends FlutterDeckSlideWidget {
             steps: steps,
           ),
         );
-  static const _items = [
+  static final _items = [
     'ユーザー体験に直結',
     'しかし、利便性を求めて複雑になりすぎると、バグを生みやすくなってしまう難しいユーザーインターフェース',
     'エンジニアが、複雑な要件を避けたがる',
-  ];
+  ].map((e) => TextSpan(text:e)).toList();
 
   static int get steps => _items.length + 1;
 

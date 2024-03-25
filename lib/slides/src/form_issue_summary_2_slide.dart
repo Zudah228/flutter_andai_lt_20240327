@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-import '../../utils/list_ex.dart';
-
 class FormIssueSummary2Slide extends FlutterDeckSlideWidget {
   FormIssueSummary2Slide()
       : super(
@@ -23,7 +21,8 @@ class FormIssueSummary2Slide extends FlutterDeckSlideWidget {
           items: const [
             '公式ドキュメントの情報が少なすぎる',
             'Form をサポートしているウィジェットが、あまりにも少ない',
-          ].addedLfAtLast(3),
+            'FormField の自作のハードルが高い',
+          ],
         );
       },
     );
