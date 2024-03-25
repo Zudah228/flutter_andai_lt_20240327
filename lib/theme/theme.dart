@@ -13,6 +13,7 @@ FlutterDeckThemeData _baseTheme({
     brightness: brightness,
     textTheme: textTheme,
     theme: ThemeData(
+      fontFamily: 'Hiragino Kaku Gothic ProN',
       brightness: brightness,
       inputDecorationTheme: const InputDecorationTheme(
         filled: true,
@@ -24,6 +25,9 @@ FlutterDeckThemeData _baseTheme({
     splitSlideTheme: FlutterDeckSplitSlideThemeData(
       rightBackgroundColor: foundation.materialTheme.colorScheme.surfaceTint,
       rightColor: foundation.materialTheme.colorScheme.onSurface,
+    ),
+    bulletListTheme: const FlutterDeckBulletListThemeData(
+      textStyle: TextStyle(fontSize: 24),
     ),
   );
 }
