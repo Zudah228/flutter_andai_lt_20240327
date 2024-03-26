@@ -5,22 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "lt_slide_20240327",
+      "name": "macos",
       "request": "launch",
       "type": "dart",
       "args": ["-d", "macos"]
     },
     {
-      "name": "lt_slide_20240327 (profile mode)",
+      "name": "chrome",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "args": ["-d", "chrome"]
     },
-    {
-      "name": "lt_slide_20240327 (release mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    }
   ]
 }
