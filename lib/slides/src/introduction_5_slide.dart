@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:gap/gap.dart';
 
@@ -24,24 +25,10 @@ class Introduction5Slide extends FlutterDeckSlideWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const FlutterDeckCodeHighlight(
-              code: '''
-
-    final _formKey = GlobalKey<FormState>();
-    
-    @override
-    Widget build(BuildContext context) {
-      return Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            TextFormField(),
-            FormField(),
-            FormField(),
-          ]
-        )
-      );
-    }''',
+            const SingleChildScrollView(
+              child: FlutterDeckCodeHighlight(
+                code: _code,
+              ),
             ),
             const Gap(24),
             Flexible(
@@ -63,4 +50,21 @@ class Introduction5Slide extends FlutterDeckSlideWidget {
       );
     });
   }
+
+  static const _code = '''
+final _formKey = GlobalKey<FormState>();
+
+@override
+Widget build(BuildContext context) {
+  return Form(
+    key: _formKey,
+    child: Column(
+      children: [
+        TextFormField(),
+        FormField(),
+        FormField(),
+      ]
+    )
+  );
+}''';
 }
