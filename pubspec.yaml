@@ -14,6 +14,12 @@ dependencies:
   flutter_svg: ^2.0.10+1
   gap: ^3.0.1
   auto_size_text: ^3.0.0 
+  url_launcher: ^6.2.5
+  custom_text: ^2.0.1
+  date_time_form_field:
+    git:
+        url: https://github.com/Zudah228/date_time_form_field.git
+        ref: 1b7db5277d39aef6d606caff11ce245abea1b342
 
 dev_dependencies:
   flutter_test:

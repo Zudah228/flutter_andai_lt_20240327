@@ -11,7 +11,7 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
           configuration: const FlutterDeckSlideConfiguration(
             route: '/form_issue_code_2',
             header: FlutterDeckHeaderConfiguration(
-              title: 'Formが抱える問題 ②',
+              title: 'Formが抱える問題 ③',
             ),
           ),
         );
@@ -52,11 +52,17 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
                 ),
               ),
               Flexible(
-                flex: 2,
-                child: FlutterDeckBulletList(
-                  items: const [
-                    'ある程度構造化・関心事の分離がされている',
-                    'エラーメッセージが出るので、必ずしもダイアログで通知する必要がない',
+                flex: 3,
+                child: Column(
+                  children: [
+                    Flexible(
+                      child: FlutterDeckBulletList(
+                        items: const [
+                          'ある程度構造化され・関心事の分離がされている',
+                          'エラーメッセージが出るので、必ずしもダイアログで通知する必要がない',
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -69,6 +75,7 @@ class FormIssueCode2Slide extends FlutterDeckSlideWidget {
 
   static const _codeOnPressed = '''
 class _MyFormWidgetState extends State<MyFormWidget> {
+  final _formKey = GlobalKey<FormState>();
 
   Future<void> _onPressed() async {
     if (!_formKey.currentState!.validate()) {
@@ -78,12 +85,17 @@ class _MyFormWidgetState extends State<MyFormWidget> {
     // ... save implements
   }
 
-      TextFormField(
-        validator: UserFormValidation.name,
-      ),
-      TextFormField(
-        validator: UserFormValidation.age,
-      ),
+    Form(
+      key: _formKey,
+      child: [
+        TextFormField(
+          validator: UserFormValidation.name,
+        ),
+        TextFormField(
+          validator: UserFormValidation.age,
+        ),
+      ]
+    )
 
 ''';
   static const _codeValidation = '''

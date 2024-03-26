@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:gap/gap.dart';
 
+import '../../components/extended_flutter_deck_bullet_list.dart';
+import '../../components/linked_text.dart';
 import '../../components/subtitle.dart';
 
 class FormSolution1Slide extends FlutterDeckSlideWidget {
@@ -26,8 +28,17 @@ class FormSolution1Slide extends FlutterDeckSlideWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: FlutterDeckBulletList(
-                  items: const ['reactive_forms', 'flutter_form_builder'],
+                child: ExtendedFlutterDeckBulletList(
+                  items: [
+                    LinkedTextSpan(
+                      text: 'reactive_forms',
+                      url: 'https://pub.dev/packages/reactive_forms',
+                    ),
+                    LinkedTextSpan(
+                      text: 'flutter_form_builder',
+                      url: 'https://pub.dev/packages/flutter_form_builder',
+                    ),
+                  ],
                 ),
               ),
               const Gap(64),

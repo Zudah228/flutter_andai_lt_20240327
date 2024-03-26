@@ -29,5 +29,11 @@ FlutterDeckThemeData _baseTheme({
     bulletListTheme: const FlutterDeckBulletListThemeData(
       textStyle: TextStyle(fontSize: 24),
     ),
+    codeHighlightTheme: FlutterDeckCodeHighlightThemeData(
+      backgroundColor: switch (brightness) {
+        Brightness.dark => const Color(0xff1E1E1E),
+        Brightness.light => const Color(0xffF0F0F0),
+      },
+    ),
   );
 }

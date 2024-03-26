@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 
-class Introduction1Slide extends FlutterDeckSlideWidget {
-  Introduction1Slide()
+class ThanksSlide extends FlutterDeckSlideWidget {
+  ThanksSlide()
       : super(
           configuration: const FlutterDeckSlideConfiguration(
-            route: '/introduction_1',
-            title: '謝辞',
+            route: '/thanks_slide',
+            title: '最後に',
+            header:
+                FlutterDeckHeaderConfiguration(title: '最後に', showHeader: false),
           ),
         );
 
   @override
   FlutterDeckSlide build(BuildContext context) {
     return FlutterDeckSlide.bigFact(
-      title: '''flutter_deck 使うてます''',
-      subtitle: 'https://github.com/mkobuolys/flutter_deck',
+      title: 'ご清聴ありがとうございました',
     );
   }
 }

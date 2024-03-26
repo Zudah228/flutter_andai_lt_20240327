@@ -29,7 +29,7 @@ class CallOut extends StatelessWidget {
               style: theme.textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
-            content,
+            Flexible(child: content),
           ],
         ),
       ),

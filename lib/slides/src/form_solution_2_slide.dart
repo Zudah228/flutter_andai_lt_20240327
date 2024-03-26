@@ -40,7 +40,8 @@ class FormSolution2Slide extends FlutterDeckSlideWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Subtitle('継承 * ちゃんと作るならこっちおすすめ'),
+                  Subtitle('継承'),
+                  Text(' * ちゃんと作るならこっちおすすめ'),
                   Expanded(
                     child: SingleChildScrollView(
                       child: FlutterDeckCodeHighlight(

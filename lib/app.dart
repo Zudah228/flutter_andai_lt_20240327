@@ -24,6 +24,7 @@ class MainApp extends StatelessWidget {
           ),
         ),
         controls: FlutterDeckControlsConfiguration(),
+        header: FlutterDeckHeaderConfiguration(showHeader: false),
       ),
       lightTheme: lightTheme,
       darkTheme: darkTheme,
