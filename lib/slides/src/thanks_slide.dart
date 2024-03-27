@@ -16,6 +16,7 @@ class ThanksSlide extends FlutterDeckSlideWidget {
   FlutterDeckSlide build(BuildContext context) {
     return FlutterDeckSlide.bigFact(
       title: 'ご清聴ありがとうございました',
+      subtitle: '資料 → https://github.com/Zudah228/flutter_andai_lt_20240327',
     );
   }
 }

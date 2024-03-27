@@ -54,8 +54,8 @@ class Introduction2Slide extends FlutterDeckSlideWidget {
                         ),
                         const TextSpan(
                           text: '最近の流行り'
-                              '\n　・Drift'
-                              '\n　・アニメ『葬送のフリーレン』、仮面ライダーガッチャード、',
+                              '\n　・Drift パッケージで自作アプリ'
+                              '\n　・アニメ『葬送のフリーレン』、『仮面ライダーガッチャード』、『メタルギアソリッド』',
                         )
                       ],
                     ),

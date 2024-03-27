@@ -7,9 +7,9 @@ class Introduction3Slide extends FlutterDeckSlideWidget {
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/introduction_3_slide',
-            title: 'きっかけ',
+            title: 'きっかけ ①',
             header: FlutterDeckHeaderConfiguration(
-              title: 'きっかけ',
+              title: 'きっかけ ①'
             ),
           ),
         );

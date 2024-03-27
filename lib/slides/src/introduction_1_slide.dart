@@ -6,7 +6,7 @@ class Introduction1Slide extends FlutterDeckSlideWidget {
       : super(
           configuration: const FlutterDeckSlideConfiguration(
             route: '/introduction_1',
-            title: '謝辞',
+            title: 'flutter_deck について',
           ),
         );
 
